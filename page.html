@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Page</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="content"></div>
+
+    <script>
+        const pageData = {
+            "mission": {
+                title: "Our Mission",
+                content: "This is the mission content. We aim toLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            },
+            "about-us": {
+                title: "About Us",
+                img: "img/folder.png",
+                content: "We are a group of developers focused on building innovative web experiences..."
+            },
+            "members": {
+                title: "Team Members",
+                content: "Meet our amazing teamLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            },
+            "unknown": {
+                title: "Unknown Page",
+                content: "This page is still being defined Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            }
+        };
+
+
+        const params = new URLSearchParams(window.location.search);
+        const pageId = params.get("id");
+
+        const contentDiv = document.getElementById("content");
+        contentDiv.innerHTML = "";
+
+        if (pageData[pageId]) {
+            const { title, content, img } = pageData[pageId];
+
+            const h1 = document.createElement("h1");
+            h1.textContent = title;
+            contentDiv.appendChild(h1);
+
+            if (img) {
+                const image = document.createElement("img");
+                image.src = img;
+                image.alt = title;
+                image.style.maxWidth = "100%";
+                image.style.height = "auto";
+                image.style.marginBottom = "1rem";
+                contentDiv.appendChild(image);
+            }
+
+            const p = document.createElement("p");
+            p.textContent = content;
+            contentDiv.appendChild(p);
+
+        } else {
+            const h1 = document.createElement("h1");
+            h1.textContent = "404 - Page Not Found";
+            contentDiv.appendChild(h1);
+        }
+
+    </script>
+</body>
+
+</html>
