@@ -1,5 +1,62 @@
+@font-face {
+  font-family: 'heading';
+  src: url('font/HelveticaNeueBold.otf') format('truetype');
+}
+@font-face {
+  font-family: 'normal';
+  src: url('font/HelveticaNeueMedium.otf') format('truetype');
+}
+body {
+  margin: 0;
+
+  font-family: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#landingPage {
+  background-color: #f5f5f5;
+}
 .boxes {
   cursor: pointer;
   border: 1px dashed grey;
   padding: 10px;
+  font-family: heading;
+}
+
+.panel {
+  border: 2px solid white;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 1200px;
+}
+
+.panel-content p {
+  /* margin-top: 1rem;  */
+  line-height: 1.4;
+}
+.otherPagesBackground {
+  background-color: #d6cfc4;
+  display: flex;
+  flex-direction: column;
+}
+nav {
+  /* border: 1px solid red; */
+  width: 100%;
+  margin-bottom: 100px;
+  border-bottom: 2px solid white;
+}
+.BackToMain {
+  padding-left: 100px;
+  font-size: 30px;
+  cursor: pointer;
 }

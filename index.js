@@ -59,6 +59,18 @@ document.querySelectorAll('.boxes').forEach((div, index) => {
       e.stopImmediatePropagation();
       return;
     }
-    location.href = `page.html?id=${id}`;
+    if (id === 'members') {
+      location.href = 'members.html';
+    }
+    if (id === 'about-us') {
+      location.href = 'aboutus.html';
+    }
+
+    if (id === 'founders') {
+      location.href = 'founders.html';
+    }
+    if (id === 'events') {
+      location.href = 'events.html';
+    }
   });
 });
