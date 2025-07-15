@@ -20,6 +20,12 @@ document.querySelectorAll('.boxes').forEach((div, index) => {
     e.preventDefault();
     didDrag = false;
 
+    document.querySelectorAll('.boxes').forEach((el) => {
+      el.style.border = 'none';
+    });
+
+    div.style.border = '2px dotted #222222';
+
     shiftX = e.clientX - div.getBoundingClientRect().left;
     shiftY = e.clientY - div.getBoundingClientRect().top;
 
@@ -59,9 +65,7 @@ document.querySelectorAll('.boxes').forEach((div, index) => {
       e.stopImmediatePropagation();
       return;
     }
-    if (id === 'members') {
-      location.href = 'members.html';
-    }
+
     if (id === 'about-us') {
       location.href = 'aboutus.html';
     }
