@@ -9,20 +9,27 @@
 </head>
 
 <body class="otherPagesBackground">
-
+    <img src="img/arrow.png" alt="" class="backImg" id="backImgID">
     <div class="panel">
         <div class="panel-content">
-            <iframe width="1200" height="600" src="https://www.youtube.com/embed/Z16RAIykYk4" frameborder="0"
+            <iframe class="middleContent" src="https://www.youtube.com/embed/Z16RAIykYk4" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
 
-            <p id="aboutUstext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi, quis et
+            <p id="aboutUstext" class="underImgContent">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptates modi, quis et
                 adipisci
                 exercitationem placeat a iure distinctio illum reprehenderit labore id voluptatibus neque mollitia unde
                 in odio ad optio!</p>
         </div>
     </div>
+    <script>
+        const backImgID = document.getElementById('backImgID')
+        backImgID.addEventListener('click', function () {
+            window.location.href = "index.html";
 
+        })
+    </script>
 </body>
 
 </html>
