@@ -151,7 +151,7 @@ body {
   }
 
   .boxes {
-    position: static !important;
+    /* position: static !important; */
     margin: 10px 0;
   }
 }
