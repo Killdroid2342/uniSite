@@ -75,3 +75,14 @@ nav {
 #aboutUstext {
   margin-top: 30px;
 }
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .boxes {
+    position: static !important;
+    margin: 10px 0;
+  }
+}
