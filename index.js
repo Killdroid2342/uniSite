@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       didDrag = false;
 
-      document.querySelectorAll('.boxes').forEach((el) => {
-        el.style.border = 'none';
-      });
+      document
+        .querySelectorAll('.boxes')
+        .forEach((el) => (el.style.border = 'none'));
       div.style.border = '2px dotted #222222';
 
       const clientX = e.type.startsWith('touch')
@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
       shiftY = clientY - div.getBoundingClientRect().top;
 
       function onMove(e) {
-        const pageX = e.type.startsWith('touch') ? e.touches[0].pageX : e.pageX;
-        const pageY = e.type.startsWith('touch') ? e.touches[0].pageY : e.pageY;
+        const moveX = e.type.startsWith('touch') ? e.touches[0].pageX : e.pageX;
+        const moveY = e.type.startsWith('touch') ? e.touches[0].pageY : e.pageY;
 
-        const left = pageX - shiftX;
-        const top = pageY - shiftY;
+        const left = moveX - shiftX;
+        const top = moveY - shiftY;
 
         div.style.left = left + 'px';
         div.style.top = top + 'px';
@@ -53,18 +53,20 @@ document.addEventListener('DOMContentLoaded', () => {
         didDrag = true;
       }
 
-      function endDrag() {
+      function endDrag(e) {
         document.removeEventListener('mousemove', onMove);
         document.removeEventListener('mouseup', endDrag);
         document.removeEventListener('touchmove', onMove);
         document.removeEventListener('touchend', endDrag);
 
-        if (didDrag) {
-          div.dataset.justDragged = 'true';
-          setTimeout(() => {
-            div.dataset.justDragged = 'false';
-          }, 100);
+        if (!didDrag) {
+          handleBoxClick(id);
         }
+
+        div.dataset.justDragged = didDrag ? 'true' : 'false';
+        setTimeout(() => {
+          div.dataset.justDragged = 'false';
+        }, 100);
       }
 
       document.addEventListener('mousemove', onMove);
@@ -82,7 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopImmediatePropagation();
         return;
       }
+      handleBoxClick(id);
+    });
 
+    function handleBoxClick(id) {
       if (id === 'about-us') {
         location.href = 'aboutus.html';
       } else if (id === 'founders') {
@@ -90,6 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (id === 'events') {
         location.href = 'events.html';
       }
-    });
+    }
   });
 });
