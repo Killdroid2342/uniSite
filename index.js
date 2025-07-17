@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const screenWidth = window.innerWidth;
+  const spacing = Math.min(120, screenWidth / 4.5);
+
   document.querySelectorAll('.boxes').forEach((div, index) => {
     const id = div.dataset.id || index;
 
@@ -10,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       div.style.left = left;
       div.style.top = top;
     } else {
-      div.style.left = `${50 + index * 150}px`;
+      div.style.left = `${20 + index * spacing}px`;
       div.style.top = '50px';
     }
 
@@ -21,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       didDrag = false;
 
-      document
-        .querySelectorAll('.boxes')
-        .forEach((el) => (el.style.border = 'none'));
+      document.querySelectorAll('.boxes').forEach((el) => {
+        el.style.border = 'none';
+      });
       div.style.border = '2px dotted #222222';
 
       const clientX = e.type.startsWith('touch')
@@ -40,11 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const moveX = e.type.startsWith('touch') ? e.touches[0].pageX : e.pageX;
         const moveY = e.type.startsWith('touch') ? e.touches[0].pageY : e.pageY;
 
-        const left = moveX - shiftX;
-        const top = moveY - shiftY;
+        const left = Math.min(
+          window.innerWidth - div.offsetWidth,
+          Math.max(0, moveX - shiftX)
+        );
+        const top = Math.min(
+          window.innerHeight - div.offsetHeight,
+          Math.max(0, moveY - shiftY)
+        );
 
-        div.style.left = left + 'px';
-        div.style.top = top + 'px';
+        div.style.left = `${left}px`;
+        div.style.top = `${top}px`;
 
         localStorage.setItem(
           `box-${id}`,
@@ -53,15 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
         didDrag = true;
       }
 
-      function endDrag(e) {
+      function endDrag() {
         document.removeEventListener('mousemove', onMove);
         document.removeEventListener('mouseup', endDrag);
         document.removeEventListener('touchmove', onMove);
         document.removeEventListener('touchend', endDrag);
 
-        if (!didDrag) {
-          handleBoxClick(id);
-        }
+        if (!didDrag) handleBoxClick(id);
 
         div.dataset.justDragged = didDrag ? 'true' : 'false';
         setTimeout(() => {
@@ -88,13 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function handleBoxClick(id) {
-      if (id === 'about-us') {
-        location.href = 'aboutus.html';
-      } else if (id === 'founders') {
-        location.href = 'founders.html';
-      } else if (id === 'events') {
-        location.href = 'events.html';
-      }
+      if (id === 'about-us') location.href = 'aboutus.html';
+      else if (id === 'founders') location.href = 'founders.html';
+      else if (id === 'events') location.href = 'events.html';
     }
   });
 });
