@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     div.addEventListener(
       'touchstart',
       (e) => {
+        document.querySelectorAll('.boxes').forEach((el) => {
+          el.style.border = 'none';
+        });
+
+        div.style.border = '2px dotted #222222';
+
         for (const touch of e.changedTouches) {
           if (activeTouches.has(touch.identifier)) continue;
 
