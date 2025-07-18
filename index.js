@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   const screenWidth = window.innerWidth;
   const spacing = Math.min(120, screenWidth / 4.5);
-
   const activeTouches = new Map();
+  let isMouseDragging = false;
+  let currentMouseTarget = null;
+  let mouseShiftX = 0,
+    mouseShiftY = 0;
 
   document.querySelectorAll('.boxes').forEach((div, index) => {
     const id = div.dataset.id || index;
@@ -41,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     div.addEventListener(
       'touchmove',
       (e) => {
-        e.preventDefault(); // prevent scrolling
+        e.preventDefault();
         for (const touch of e.changedTouches) {
           const touchData = activeTouches.get(touch.identifier);
           if (!touchData) continue;
@@ -84,16 +87,68 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    div.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      isMouseDragging = true;
+      currentMouseTarget = div;
+
+      const rect = div.getBoundingClientRect();
+      mouseShiftX = e.clientX - rect.left;
+      mouseShiftY = e.clientY - rect.top;
+
+      document.querySelectorAll('.boxes').forEach((el) => {
+        el.style.border = 'none';
+      });
+      div.style.border = '2px dotted #222222';
+    });
+
     div.addEventListener('click', (e) => {
-      if (div.dataset.justDragged === 'true') {
+      const justDragged = div.dataset.justDragged === 'true';
+      if (justDragged) {
         e.preventDefault();
         e.stopImmediatePropagation();
         return;
       }
-      const id = div.dataset.id || index;
       if (id === 'about-us') location.href = 'aboutus.html';
       else if (id === 'founders') location.href = 'founders.html';
       else if (id === 'events') location.href = 'events.html';
     });
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!isMouseDragging || !currentMouseTarget) return;
+
+    const div = currentMouseTarget;
+
+    const moveX = e.clientX;
+    const moveY = e.clientY;
+
+    const left = Math.min(
+      window.innerWidth - div.offsetWidth,
+      Math.max(0, moveX - mouseShiftX)
+    );
+    const top = Math.min(
+      window.innerHeight - div.offsetHeight,
+      Math.max(0, moveY - mouseShiftY)
+    );
+
+    div.style.left = `${left}px`;
+    div.style.top = `${top}px`;
+
+    const id = div.dataset.id;
+    localStorage.setItem(
+      `box-${id}`,
+      JSON.stringify({ left: div.style.left, top: div.style.top })
+    );
+
+    div.dataset.justDragged = 'true';
+    setTimeout(() => {
+      div.dataset.justDragged = 'false';
+    }, 100);
+  });
+
+  document.addEventListener('mouseup', () => {
+    isMouseDragging = false;
+    currentMouseTarget = null;
   });
 });
