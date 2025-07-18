@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const screenWidth = window.innerWidth;
   const spacing = Math.min(120, screenWidth / 4.5);
 
+  const activeTouches = new Map();
+
   document.querySelectorAll('.boxes').forEach((div, index) => {
     const id = div.dataset.id || index;
-
     div.style.position = 'absolute';
 
     const savedPosition = localStorage.getItem(`box-${id}`);
@@ -17,73 +18,71 @@ document.addEventListener('DOMContentLoaded', () => {
       div.style.top = '50px';
     }
 
-    let didDrag = false;
-    let shiftX, shiftY;
+    div.addEventListener(
+      'touchstart',
+      (e) => {
+        for (const touch of e.changedTouches) {
+          if (activeTouches.has(touch.identifier)) continue;
 
-    function startDrag(e) {
-      e.preventDefault();
-      didDrag = false;
+          const rect = div.getBoundingClientRect();
+          const shiftX = touch.clientX - rect.left;
+          const shiftY = touch.clientY - rect.top;
 
-      document.querySelectorAll('.boxes').forEach((el) => {
-        el.style.border = 'none';
-      });
-      div.style.border = '2px dotted #222222';
+          activeTouches.set(touch.identifier, {
+            div,
+            shiftX,
+            shiftY,
+          });
+        }
+      },
+      { passive: false }
+    );
 
-      const clientX = e.type.startsWith('touch')
-        ? e.touches[0].clientX
-        : e.clientX;
-      const clientY = e.type.startsWith('touch')
-        ? e.touches[0].clientY
-        : e.clientY;
+    div.addEventListener(
+      'touchmove',
+      (e) => {
+        e.preventDefault(); // prevent scrolling
+        for (const touch of e.changedTouches) {
+          const touchData = activeTouches.get(touch.identifier);
+          if (!touchData) continue;
 
-      shiftX = clientX - div.getBoundingClientRect().left;
-      shiftY = clientY - div.getBoundingClientRect().top;
+          const { div, shiftX, shiftY } = touchData;
 
-      function onMove(e) {
-        const moveX = e.type.startsWith('touch') ? e.touches[0].pageX : e.pageX;
-        const moveY = e.type.startsWith('touch') ? e.touches[0].pageY : e.pageY;
+          const moveX = touch.clientX;
+          const moveY = touch.clientY;
 
-        const left = Math.min(
-          window.innerWidth - div.offsetWidth,
-          Math.max(0, moveX - shiftX)
-        );
-        const top = Math.min(
-          window.innerHeight - div.offsetHeight,
-          Math.max(0, moveY - shiftY)
-        );
+          const left = Math.min(
+            window.innerWidth - div.offsetWidth,
+            Math.max(0, moveX - shiftX)
+          );
+          const top = Math.min(
+            window.innerHeight - div.offsetHeight,
+            Math.max(0, moveY - shiftY)
+          );
 
-        div.style.left = `${left}px`;
-        div.style.top = `${top}px`;
+          div.style.left = `${left}px`;
+          div.style.top = `${top}px`;
 
-        localStorage.setItem(
-          `box-${id}`,
-          JSON.stringify({ left: div.style.left, top: div.style.top })
-        );
-        didDrag = true;
+          localStorage.setItem(
+            `box-${div.dataset.id || index}`,
+            JSON.stringify({ left: div.style.left, top: div.style.top })
+          );
+        }
+      },
+      { passive: false }
+    );
+
+    div.addEventListener('touchend', (e) => {
+      for (const touch of e.changedTouches) {
+        activeTouches.delete(touch.identifier);
       }
+    });
 
-      function endDrag() {
-        document.removeEventListener('mousemove', onMove);
-        document.removeEventListener('mouseup', endDrag);
-        document.removeEventListener('touchmove', onMove);
-        document.removeEventListener('touchend', endDrag);
-
-        if (!didDrag) handleBoxClick(id);
-
-        div.dataset.justDragged = didDrag ? 'true' : 'false';
-        setTimeout(() => {
-          div.dataset.justDragged = 'false';
-        }, 100);
+    div.addEventListener('touchcancel', (e) => {
+      for (const touch of e.changedTouches) {
+        activeTouches.delete(touch.identifier);
       }
-
-      document.addEventListener('mousemove', onMove);
-      document.addEventListener('mouseup', endDrag);
-      document.addEventListener('touchmove', onMove, { passive: false });
-      document.addEventListener('touchend', endDrag);
-    }
-
-    div.addEventListener('mousedown', startDrag);
-    div.addEventListener('touchstart', startDrag, { passive: false });
+    });
 
     div.addEventListener('click', (e) => {
       if (div.dataset.justDragged === 'true') {
@@ -91,13 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopImmediatePropagation();
         return;
       }
-      handleBoxClick(id);
-    });
-
-    function handleBoxClick(id) {
+      const id = div.dataset.id || index;
       if (id === 'about-us') location.href = 'aboutus.html';
       else if (id === 'founders') location.href = 'founders.html';
       else if (id === 'events') location.href = 'events.html';
-    }
+    });
   });
 });
