@@ -10,6 +10,11 @@
   padding: 0px;
   margin: 0px;
 }
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
 body {
   margin: 0;
   font-family: 'Courier New', Courier, monospace;
@@ -17,7 +22,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+
   flex-direction: column;
 }
 
