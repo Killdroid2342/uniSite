@@ -79,7 +79,7 @@ body {
 .backImg {
   position: absolute;
   top: 20px;
-  left: 30px;
+  left: 15px;
   width: 40px;
   height: auto;
   cursor: pointer;
@@ -125,7 +125,10 @@ body {
   align-items: center;
   justify-content: center;
 }
-
+.textHover:hover {
+  color: #06402b;
+  cursor: pointer;
+}
 @media (max-width: 633px) {
   .eventRowPosition {
     display: flex;
