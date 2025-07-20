@@ -216,5 +216,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   highlightText();
-  setInterval(highlightText, 500);
+  setInterval(highlightText, 2000);
 });
