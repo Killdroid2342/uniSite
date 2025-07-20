@@ -128,7 +128,7 @@ body {
 .textHover {
   color: #777777;
   /* color: black; */
-  transition: color 0.2s ease;
+  transition: color 3s ease;
 }
 .textHoverLast {
   color: #777777;
