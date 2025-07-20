@@ -128,6 +128,14 @@ body {
 .textHover {
   color: #777777;
   /* color: black; */
+  transition: color 0.1s ease;
+}
+.textHoverLast {
+  color: #777777;
+}
+.textHoverLast:hover {
+  color: #06402b;
+  cursor: pointer;
 }
 .textHover:hover {
   color: #06402b;
@@ -149,6 +157,9 @@ body {
 .modal img {
   max-width: 90%;
   max-height: 90%;
+}
+.active {
+  color: #06402b;
 }
 @media (max-width: 633px) {
   .eventRowPosition {

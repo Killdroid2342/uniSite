@@ -204,4 +204,17 @@ document.addEventListener('DOMContentLoaded', () => {
       positionDiv(div, id);
     });
   });
+  const texts = document.querySelectorAll('.textHover');
+  let index = 0;
+
+  function highlightText() {
+    texts.forEach((el) => el.classList.remove('active'));
+
+    texts[index].classList.add('active');
+
+    index = (index + 1) % texts.length;
+  }
+
+  highlightText();
+  setInterval(highlightText, 1000);
 });
