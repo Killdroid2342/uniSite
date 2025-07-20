@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('modal');
 
   const defaultPositions = {
+    founders: { leftPercent: 12.7, topPercent: 20 },
+    events: { leftPercent: 65.6, topPercent: 55.6 },
     'about-us': { leftPercent: 75.3, topPercent: 24.5 },
-    events: { leftPercent: 12.7, topPercent: 20 },
-    founders: { leftPercent: 65.6, topPercent: 55.6 },
     members: { leftPercent: 10.9, topPercent: 56.8 },
   };
 
