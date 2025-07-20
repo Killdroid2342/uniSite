@@ -1,25 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const screenWidth = window.innerWidth;
-  const spacing = Math.min(120, screenWidth / 4.5);
   const activeTouches = new Map();
   let isMouseDragging = false;
   let currentMouseTarget = null;
   let mouseShiftX = 0,
     mouseShiftY = 0;
+  let mouseMovedDuringDrag = false;
+
+  const modal = document.getElementById('modal');
+
+  const defaultPositions = {
+    'about-us': { leftPercent: 75.3, topPercent: 24.5 },
+    events: { leftPercent: 12.7, topPercent: 20 },
+    founders: { leftPercent: 65.6, topPercent: 55.6 },
+    members: { leftPercent: 10.9, topPercent: 56.8 },
+  };
+
+  function percentToPx(percent, axis) {
+    if (axis === 'x') return (percent * window.innerWidth) / 100;
+    else if (axis === 'y') return (percent * window.innerHeight) / 100;
+  }
+
+  function pxToPercent(px, axis) {
+    if (axis === 'x') return (px / window.innerWidth) * 100;
+    else if (axis === 'y') return (px / window.innerHeight) * 100;
+  }
+
+  function positionDiv(div, id) {
+    const savedPosition = localStorage.getItem(`box-${id}`);
+    if (savedPosition) {
+      const { leftPercent, topPercent } = JSON.parse(savedPosition);
+      div.style.left = `${percentToPx(leftPercent, 'x')}px`;
+      div.style.top = `${percentToPx(topPercent, 'y')}px`;
+    } else if (defaultPositions[id]) {
+      div.style.left = `${percentToPx(
+        defaultPositions[id].leftPercent,
+        'x'
+      )}px`;
+      div.style.top = `${percentToPx(defaultPositions[id].topPercent, 'y')}px`;
+    } else {
+      div.style.left = '0px';
+      div.style.top = '0px';
+    }
+  }
 
   document.querySelectorAll('.boxes').forEach((div, index) => {
     const id = div.dataset.id || index;
     div.style.position = 'absolute';
 
-    const savedPosition = localStorage.getItem(`box-${id}`);
-    if (savedPosition) {
-      const { left, top } = JSON.parse(savedPosition);
-      div.style.left = left;
-      div.style.top = top;
-    } else {
-      div.style.left = `${20 + index * spacing}px`;
-      div.style.top = '50px';
-    }
+    positionDiv(div, id);
 
     div.addEventListener(
       'touchstart',
@@ -27,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.boxes').forEach((el) => {
           el.style.border = 'none';
         });
-
         div.style.border = '2px dotted #222222';
 
         for (const touch of e.changedTouches) {
@@ -60,21 +87,24 @@ document.addEventListener('DOMContentLoaded', () => {
           const moveX = touch.clientX;
           const moveY = touch.clientY;
 
-          const left = Math.min(
+          const leftPx = Math.min(
             window.innerWidth - div.offsetWidth,
             Math.max(0, moveX - shiftX)
           );
-          const top = Math.min(
+          const topPx = Math.min(
             window.innerHeight - div.offsetHeight,
             Math.max(0, moveY - shiftY)
           );
 
-          div.style.left = `${left}px`;
-          div.style.top = `${top}px`;
+          div.style.left = `${leftPx}px`;
+          div.style.top = `${topPx}px`;
 
           localStorage.setItem(
             `box-${div.dataset.id || index}`,
-            JSON.stringify({ left: div.style.left, top: div.style.top })
+            JSON.stringify({
+              leftPercent: pxToPercent(leftPx, 'x'),
+              topPercent: pxToPercent(topPx, 'y'),
+            })
           );
         }
       },
@@ -96,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     div.addEventListener('mousedown', (e) => {
       e.preventDefault();
       isMouseDragging = true;
+      mouseMovedDuringDrag = false;
       currentMouseTarget = div;
 
       const rect = div.getBoundingClientRect();
@@ -109,52 +140,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     div.addEventListener('click', (e) => {
-      const justDragged = div.dataset.justDragged === 'true';
-      if (justDragged) {
+      if (mouseMovedDuringDrag) {
         e.preventDefault();
         e.stopImmediatePropagation();
         return;
       }
+
       if (id === 'about-us') location.href = 'aboutus.html';
       else if (id === 'founders') location.href = 'founders.html';
       else if (id === 'events') location.href = 'events.html';
+      else if (id === 'members') {
+        modal.style.display = 'flex';
+      }
     });
   });
 
   document.addEventListener('mousemove', (e) => {
     if (!isMouseDragging || !currentMouseTarget) return;
 
+    mouseMovedDuringDrag = true;
+
     const div = currentMouseTarget;
 
     const moveX = e.clientX;
     const moveY = e.clientY;
 
-    const left = Math.min(
+    const leftPx = Math.min(
       window.innerWidth - div.offsetWidth,
       Math.max(0, moveX - mouseShiftX)
     );
-    const top = Math.min(
+    const topPx = Math.min(
       window.innerHeight - div.offsetHeight,
       Math.max(0, moveY - mouseShiftY)
     );
 
-    div.style.left = `${left}px`;
-    div.style.top = `${top}px`;
+    div.style.left = `${leftPx}px`;
+    div.style.top = `${topPx}px`;
 
     const id = div.dataset.id;
     localStorage.setItem(
       `box-${id}`,
-      JSON.stringify({ left: div.style.left, top: div.style.top })
+      JSON.stringify({
+        leftPercent: pxToPercent(leftPx, 'x'),
+        topPercent: pxToPercent(topPx, 'y'),
+      })
     );
-
-    div.dataset.justDragged = 'true';
-    setTimeout(() => {
-      div.dataset.justDragged = 'false';
-    }, 100);
   });
 
   document.addEventListener('mouseup', () => {
     isMouseDragging = false;
     currentMouseTarget = null;
+  });
+
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.boxes').forEach((div, index) => {
+      const id = div.dataset.id || index;
+      positionDiv(div, id);
+    });
   });
 });
