@@ -204,6 +204,18 @@ document.addEventListener('DOMContentLoaded', () => {
       positionDiv(div, id);
     });
   });
+  document.body.addEventListener('click', (e) => {
+    if (
+      ![...e.composedPath()].some(
+        (el) => el.classList && el.classList.contains('boxes')
+      )
+    ) {
+      document.querySelectorAll('.boxes').forEach((el) => {
+        el.style.border = 'none';
+      });
+    }
+  });
+
   const texts = document.querySelectorAll('.textHover');
   let index = 0;
 
