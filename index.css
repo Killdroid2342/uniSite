@@ -37,10 +37,12 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-
+  border: 2px dotted transparent;
   /* font-family: heading; */
 }
-
+.boxes.selected {
+  border-color: #222222;
+}
 .panel {
   /* border: 2px solid white; */
   border-radius: 12px;
