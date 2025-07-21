@@ -16,13 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function percentToPx(percent, axis) {
-    if (axis === 'x') return (percent * window.innerWidth) / 100;
-    else if (axis === 'y') return (percent * window.innerHeight) / 100;
+    return axis === 'x'
+      ? (percent * window.innerWidth) / 100
+      : (percent * window.innerHeight) / 100;
   }
 
   function pxToPercent(px, axis) {
-    if (axis === 'x') return (px / window.innerWidth) * 100;
-    else if (axis === 'y') return (px / window.innerHeight) * 100;
+    return axis === 'x'
+      ? (px / window.innerWidth) * 100
+      : (px / window.innerHeight) * 100;
   }
 
   function positionDiv(div, id) {
@@ -46,16 +48,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.boxes').forEach((div, index) => {
     const id = div.dataset.id || index;
     div.style.position = 'absolute';
-
     positionDiv(div, id);
 
     div.addEventListener(
       'touchstart',
       (e) => {
-        document.querySelectorAll('.boxes').forEach((el) => {
-          el.style.border = 'none';
-        });
-        div.style.border = '2px dotted #222222';
+        document
+          .querySelectorAll('.boxes')
+          .forEach((el) => el.classList.remove('selected'));
+        div.classList.add('selected');
 
         for (const touch of e.changedTouches) {
           if (activeTouches.has(touch.identifier)) continue;
@@ -83,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!touchData) continue;
 
           const { div, shiftX, shiftY } = touchData;
-
           const moveX = touch.clientX;
           const moveY = touch.clientY;
 
@@ -133,10 +133,10 @@ document.addEventListener('DOMContentLoaded', () => {
       mouseShiftX = e.clientX - rect.left;
       mouseShiftY = e.clientY - rect.top;
 
-      document.querySelectorAll('.boxes').forEach((el) => {
-        el.style.border = 'none';
-      });
-      div.style.border = '2px dotted #222222';
+      document
+        .querySelectorAll('.boxes')
+        .forEach((el) => el.classList.remove('selected'));
+      div.classList.add('selected');
     });
 
     div.addEventListener('click', (e) => {
@@ -149,9 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (id === 'about-us') location.href = 'aboutus.html';
       else if (id === 'founders') location.href = 'founders.html';
       else if (id === 'events') location.href = 'events.html';
-      else if (id === 'members') {
-        modal.style.display = 'flex';
-      }
+      else if (id === 'members') modal.style.display = 'flex';
     });
   });
 
@@ -161,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
     mouseMovedDuringDrag = true;
 
     const div = currentMouseTarget;
-
     const moveX = e.clientX;
     const moveY = e.clientY;
 
@@ -192,28 +189,33 @@ document.addEventListener('DOMContentLoaded', () => {
     currentMouseTarget = null;
   });
 
-  window.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    document.querySelectorAll('.boxes').forEach((div, index) => {
-      const id = div.dataset.id || index;
-      positionDiv(div, id);
-    });
-  });
   document.body.addEventListener('click', (e) => {
     if (
       ![...e.composedPath()].some(
         (el) => el.classList && el.classList.contains('boxes')
       )
     ) {
-      document.querySelectorAll('.boxes').forEach((el) => {
-        el.style.border = 'none';
-      });
+      document
+        .querySelectorAll('.boxes')
+        .forEach((el) => el.classList.remove('selected'));
     }
+  });
+
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      document.querySelectorAll('.boxes').forEach((div, index) => {
+        const id = div.dataset.id || index;
+        positionDiv(div, id);
+      });
+    }, 300);
   });
 
   const texts = document.querySelectorAll('.textHover');
@@ -221,9 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function highlightText() {
     texts.forEach((el) => el.classList.remove('active'));
-
     texts[index].classList.add('active');
-
     index = (index + 1) % texts.length;
   }
 
