@@ -134,13 +134,14 @@ body {
 }
 .textHoverLast {
   color: #777777;
+  padding-bottom: 10px;
 }
 .textHoverLast:hover {
-  color: #0269ff;
+  color: #913fd4;
   cursor: pointer;
 }
 .textHover:hover {
-  color: #0269ff;
+  color: #913fd4;
   cursor: pointer;
 }
 .modal {
@@ -161,7 +162,7 @@ body {
   max-height: 90%;
 }
 .active {
-  color: #0269ff;
+  color: #913fd4;
 }
 @media (max-width: 633px) {
   .eventRowPosition {
