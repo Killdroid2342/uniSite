@@ -165,10 +165,48 @@ body {
 .active {
   color: #913fd4;
 }
-.bottomImage {
+/* .bottomImage {
   height: 50px;
-  /* width: 20px; */
   align-self: flex-start;
+  margin-left: 8px;
+} */
+.positionBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  /* border: 1px solid red; */
+  width: 100%;
+  margin-left: 28px;
+}
+.blueBox {
+  background-color: #3b67fe;
+}
+.pinkBox {
+  background-color: #ffc9df;
+}
+.yellowBox {
+  background-color: #ffd438;
+}
+.orangeBox {
+  background-color: #fd8a49;
+}
+.redBox {
+  background-color: #fe3434;
+}
+.greenBox {
+  background-color: #28996b;
+}
+.blueBox,
+.pinkBox,
+.yellowBox,
+.orangeBox,
+.redBox,
+.greenBox {
+  /* border: 1px solid red; */
+  height: 20px;
+  width: 20px;
+  align-self: flex-start;
+  margin: 23px 2px 2px 2px;
 }
 @media (max-width: 633px) {
   .eventRowPosition {
