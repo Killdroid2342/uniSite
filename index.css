@@ -231,12 +231,22 @@ body {
   .otherPagesBackground {
     height: 85vh;
   }
+
   .eventImage {
     height: 200px;
     /* width: 70%; */
   }
   .eventPosition {
     width: 90%;
+  }
+  .blueBox,
+  .pinkBox,
+  .yellowBox,
+  .orangeBox,
+  .redBox,
+  .greenBox {
+    height: 25px;
+    width: 25px;
   }
 }
 @media (max-width: 400px) {
