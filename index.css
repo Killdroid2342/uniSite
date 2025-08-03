@@ -175,8 +175,8 @@ body {
   flex-direction: row;
   justify-content: start;
   /* border: 1px solid red; */
-  width: 100%;
-  margin-left: 26px;
+  width: 90%;
+  /* margin-left: 26px; */
 }
 .blueBox {
   background-color: #3b67fe;
@@ -276,13 +276,16 @@ body {
     height: 23px;
     width: 23px;
   }
-  .positionBox {
+  /* .positionBox {
     margin-left: 35px;
-  }
+  } */
 }
 @media (max-width: 400px) {
   #eventContent {
     margin-top: 200px;
+  }
+  .panel-content {
+    margin-top: 160px;
   }
 }
 @media (max-width: 768px) {
@@ -317,6 +320,9 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 600px;
+  }
+  .panel-content {
+    margin-top: 120px;
   }
 }
 @media (max-width: 290px) {
