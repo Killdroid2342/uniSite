@@ -176,7 +176,7 @@ body {
   justify-content: start;
   /* border: 1px solid red; */
   width: 100%;
-  margin-left: 28px;
+  margin-left: 26px;
 }
 .blueBox {
   background-color: #3b67fe;
@@ -208,6 +208,34 @@ body {
   align-self: flex-start;
   margin: 23px 2px 2px 2px;
 }
+.wordGradiant {
+  background: linear-gradient(
+    to right,
+    #3b67fe,
+    #ffc9df,
+    #ffd438,
+    #fd8a49,
+    #fe3434,
+    #28996b,
+    #3b67fe
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradientMove 5s ease-in-out infinite alternate;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 100% center;
+  }
+}
+
 @media (max-width: 633px) {
   .eventRowPosition {
     display: flex;
