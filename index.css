@@ -76,7 +76,6 @@ body {
   border: 1px solid red;
 } */
 #aboutUstext {
-  margin-top: 30px;
 }
 .backImg {
   position: absolute;
@@ -93,11 +92,12 @@ body {
   height: 600px; */
 }
 .underImgContent {
-  width: 95%;
-
+  width: 90%;
+  margin-top: 30px;
   color: #fff;
   margin-bottom: 1%;
 }
+
 .eventRowPosition {
   display: flex;
   flex-direction: row;
