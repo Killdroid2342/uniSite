@@ -57,6 +57,7 @@ body {
   align-items: center;
   /* text-align: center; */
   /* width: 83.33%; */
+  margin-top: 40px;
 }
 
 .panel-content p {
@@ -79,8 +80,8 @@ body {
 }
 .backImg {
   position: absolute;
-  top: 20px;
-  left: 15px;
+  top: 25px;
+  left: 20px;
   width: 8px;
   height: auto;
   cursor: pointer;
