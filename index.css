@@ -64,6 +64,9 @@ body {
   /* margin-top: 1rem;  */
   line-height: 1.4;
 }
+#foundersContent {
+  margin-top: 160px;
+}
 .otherPagesBackground {
   background-color: black;
   display: flex;
