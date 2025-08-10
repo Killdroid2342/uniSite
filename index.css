@@ -18,7 +18,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 60vh;
   flex-direction: column;
 }
 
@@ -47,8 +47,8 @@ body {
   /* border: 2px solid white; */
   border-radius: 12px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .panel-content {
@@ -293,7 +293,7 @@ body {
     margin-top: 470px;
   }
   .otherPagesBackground {
-    height: 85vh;
+    height: 70vh;
   }
 
   .eventImage {
@@ -326,7 +326,7 @@ body {
     margin-top: 200px;
   }
   .panel-content {
-    margin-top: 160px;
+    margin-top: 120px;
   }
 }
 @media (max-width: 768px) {
@@ -363,7 +363,7 @@ body {
     margin-top: 600px;
   }
   .panel-content {
-    margin-top: 120px;
+    margin-top: 200px;
   }
 }
 @media (max-width: 290px) {
