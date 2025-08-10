@@ -196,12 +196,32 @@ body {
 .greenBox {
   background-color: #28996b;
 }
+.creamBox {
+  background-color: #f7e7c3;
+}
+.brownBox {
+  background-color: #9f654d;
+}
+.firstPurpleBox {
+  background-color: #a389b0;
+}
+.secondPurpleBox {
+  background-color: #9e95d4;
+}
+.lightBlueBox {
+  background-color: #9dc1f1;
+}
 .blueBox,
 .pinkBox,
 .yellowBox,
 .orangeBox,
 .redBox,
-.greenBox {
+.greenBox,
+.creamBox,
+.brownBox,
+.firstPurpleBox,
+.secondPurpleBox,
+.lightBlueBox {
   /* border: 1px solid red; */
   height: 20px;
   width: 20px;
@@ -234,6 +254,22 @@ body {
   100% {
     background-position: 100% center;
   }
+}
+.altWordGradiant {
+  background: linear-gradient(
+    to right,
+    #f7e7c3,
+    #9f654d,
+    #a389b0,
+    #9e95d4,
+    #9dc1f1
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradientMove 5s ease-in-out infinite alternate;
 }
 
 @media (max-width: 633px) {
@@ -272,7 +308,12 @@ body {
   .yellowBox,
   .orangeBox,
   .redBox,
-  .greenBox {
+  .greenBox,
+  .creamBox,
+  .brownBox,
+  .firstPurpleBox,
+  .secondPurpleBox,
+  .lightBlueBox {
     height: 23px;
     width: 23px;
   }

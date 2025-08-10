@@ -14,55 +14,27 @@
         <div class="eventRowPosition">
             <div class="eventPosition">
                 <img src="img/impactImage.png" alt="" class="eventImage">
-                <p class="eventText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam deserunt
-                    repellendus est fuga in quos exercitationem laborum aliquid eius. Possimus voluptate rem magni vero
-                    in
-                    ullam odit explicabo exercitationem deserunt.
+                <p class="eventText">Design and handcraft your own jewelry using beads, wire, and charms. Leave with a
+                    one-of-a-kind piece that’s totally your style.
+
                 </p>
             </div>
             <div class="eventPosition">
                 <img src="img/impactImage.png" alt="" class="eventImage">
-                <p class="eventText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam deserunt
-                    repellendus est fuga in quos exercitationem laborum aliquid eius. Possimus voluptate rem magni vero
-                    in
-                    ullam odit explicabo exercitationem deserunt.
+                <p class="eventText">Grab a blank tote and turn it into a walking piece of art with paints, stencils,
+                    and your imagination. Perfect for carrying books, snacks, or more art supplies.
+
                 </p>
             </div>
             <div class="eventPosition">
                 <img src="img/impactImage.png" alt="" class="eventImage">
-                <p class="eventText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam deserunt
-                    repellendus est fuga in quos exercitationem laborum aliquid eius. Possimus voluptate rem magni vero
-                    in
-                    ullam odit explicabo exercitationem deserunt.
+                <p class="eventText">Start painting on one canvas, then switch every few minutes to add to someone
+                    else’s work. By the end, you’ll have a chaotic, collaborative masterpiece.
+
                 </p>
             </div>
         </div>
-        <!-- <div class="eventRowPosition">
-            <div class="eventPosition">
-                <img src="img/impactImage.png" alt="" class="eventImage">
-                <p class="eventText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam deserunt
-                    repellendus est fuga in quos exercitationem laborum aliquid eius. Possimus voluptate rem magni vero
-                    in
-                    ullam odit explicabo exercitationem deserunt.
-                </p>
-            </div>
-            <div class="eventPosition">
-                <img src="img/impactImage.png" alt="" class="eventImage">
-                <p class="eventText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam deserunt
-                    repellendus est fuga in quos exercitationem laborum aliquid eius. Possimus voluptate rem magni vero
-                    in
-                    ullam odit explicabo exercitationem deserunt.
-                </p>
-            </div>
-            <div class="eventPosition">
-                <img src="img/impactImage.png" alt="" class="eventImage">
-                <p class="eventText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam deserunt
-                    repellendus est fuga in quos exercitationem laborum aliquid eius. Possimus voluptate rem magni vero
-                    in
-                    ullam odit explicabo exercitationem deserunt.
-                </p>
-            </div>
-        </div> -->
+
     </div>
 
     <script>
@@ -71,6 +43,28 @@
             window.location.href = "index.html";
 
         })
+        // make the html cleaner into one object and map the object into one templete html and do not use insertAdjacentHTML
+        const eventObj = [{
+            img: 'img/impactImage.png',
+            text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam deserunt
+                    repellendus est fuga in quos exercitationem laborum aliquid eius. Possimus voluptate rem magni vero
+                    in
+                    ullam odit explicabo exercitationem deserunt.`,
+        }, {
+            img: 'img/impactImage.png',
+            text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam deserunt
+                    repellendus est fuga in quos exercitationem laborum aliquid eius. Possimus voluptate rem magni vero
+                    in
+                    ullam odit explicabo exercitationem deserunt.`,
+        }, {
+            img: 'img/impactImage.png',
+            text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam deserunt
+                    repellendus est fuga in quos exercitationem laborum aliquid eius. Possimus voluptate rem magni vero
+                    in
+                    ullam odit explicabo exercitationem deserunt.`,
+        }]
+
+
     </script>
 </body>
 
