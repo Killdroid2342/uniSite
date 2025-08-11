@@ -250,7 +250,12 @@ body {
   color: transparent;
   animation: gradientMove 5s ease-in-out infinite alternate;
 }
-
+.eventHeader {
+  color: white;
+  font-family: Helvetica;
+  font-weight: bolder;
+  font-size: 35px;
+}
 @keyframes gradientMove {
   0% {
     background-position: 0% center;
@@ -280,7 +285,7 @@ body {
   .eventRowPosition {
     display: flex;
     flex-direction: column;
-    margin-top: 300px;
+    /* margin-top: 300px; */
   }
   .eventImage {
     height: 200px;
@@ -294,7 +299,7 @@ body {
   .eventRowPosition {
     display: flex;
     flex-direction: column;
-    margin-top: 470px;
+    /* margin-top: 470px; */
   }
   .otherPagesBackground {
     height: 70vh;
