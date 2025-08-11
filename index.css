@@ -215,6 +215,16 @@ body {
 .lightBlueBox {
   background-color: #9dc1f1;
 }
+.mustardBox {
+  background-color: #dc8c0c;
+}
+.darkBrownBox {
+  background-color: #412829;
+}
+.darkBlueBox {
+  background-color: #183c4c;
+}
+
 .blueBox,
 .pinkBox,
 .yellowBox,
@@ -225,7 +235,10 @@ body {
 .brownBox,
 .firstPurpleBox,
 .secondPurpleBox,
-.lightBlueBox {
+.lightBlueBox,
+.mustardBox,
+.darkBrownBox,
+.darkBlueBox {
   /* border: 1px solid red; */
   height: 20px;
   width: 20px;
@@ -255,6 +268,7 @@ body {
   font-family: Helvetica;
   font-weight: bolder;
   font-size: 35px;
+  margin-bottom: 10px;
 }
 @keyframes gradientMove {
   0% {
@@ -280,12 +294,23 @@ body {
   color: transparent;
   animation: gradientMove 5s ease-in-out infinite alternate;
 }
-
+.eventWordGradiant {
+  background: linear-gradient(to right, #dc8c0c, #183c4c, #412829);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradientMove 5s ease-in-out infinite alternate;
+}
+#eventColorDiv {
+  margin-left: 30px;
+}
 @media (max-width: 633px) {
   .eventRowPosition {
     display: flex;
     flex-direction: column;
-    /* margin-top: 300px; */
+    margin-top: 100px;
   }
   .eventImage {
     height: 200px;
