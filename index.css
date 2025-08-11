@@ -310,7 +310,7 @@ body {
   .eventRowPosition {
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 120px;
   }
   .eventImage {
     height: 200px;
