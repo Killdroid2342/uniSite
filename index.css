@@ -215,16 +215,18 @@ body {
 .lightBlueBox {
   background-color: #9dc1f1;
 }
-.mustardBox {
-  background-color: #dc8c0c;
+.sandBox {
+  background-color: #9b461f;
 }
-.darkBrownBox {
-  background-color: #412829;
+.plumBrownBox {
+  background-color: #6a1d2f;
 }
-.darkBlueBox {
-  background-color: #183c4c;
+.darkGreenBlueBox {
+  background-color: #354c3c;
 }
-
+.purplecurrantBox {
+  background-color: #42354c;
+}
 .blueBox,
 .pinkBox,
 .yellowBox,
@@ -236,9 +238,10 @@ body {
 .firstPurpleBox,
 .secondPurpleBox,
 .lightBlueBox,
-.mustardBox,
-.darkBrownBox,
-.darkBlueBox {
+.sandBox,
+.plumBrownBox,
+.darkGreenBlueBox,
+.purplecurrantBox {
   /* border: 1px solid red; */
   height: 20px;
   width: 20px;
@@ -347,7 +350,11 @@ body {
   .brownBox,
   .firstPurpleBox,
   .secondPurpleBox,
-  .lightBlueBox {
+  .lightBlueBox,
+  .sandBox,
+  .plumBrownBox,
+  .darkGreenBlueBox,
+  .purplecurrantBox {
     height: 23px;
     width: 23px;
   }
