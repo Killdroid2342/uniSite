@@ -10,72 +10,53 @@
 
 <body class="otherPagesBackground">
     <img src="img/arrow.png" alt="" class="backImg" id="backImgID">
-    <div id="eventContent">
-        <div class="eventRowPosition">
-            <div class="eventPosition">
-                <p class="eventHeader">Bead-Jewelry</p>
-                <p class="eventText">
-                    Design and handcraft your own jewelry using beads, wire, and charms. Leave with a
-                    <span class="eventWordGradiant">one-of-a-kind</span> piece that’s totally your style.
-                </p>
-
-            </div>
-            <div class="eventPosition">
-                <p class="eventHeader">Tote Bag Painting</p>
-                <p class="eventText">Grab a blank tote and turn it into a walking piece of art with paints, stencils,
-                    and your <span class="eventWordGradiant">imagination</span>. Perfect for carrying books, snacks, or
-                    more art supplies.
-
-                </p>
-            </div>
-
-            <div class="eventPosition">
-                <p class="eventHeader">Canvas Roulette</p>
-                <p class="eventText">
-                    Start painting on one canvas, then switch every few minutes to add to someone
-                    else’s work. By the end, you’ll have a chaotic, <span class="eventWordGradiant">collaborative
-                        masterpiece</span>.
-                </p>
-            </div>
-            <div class="positionBox" id="eventColorDiv">
-                <div class="sandBox"></div>
-                <div class="plumBrownBox"></div>
-                <div class="darkGreenBlueBox"></div>
-                <div class="purplecurrantBox"></div>
-            </div>
-        </div>
-
-    </div>
+    <div id="eventContent"></div>
 
     <script>
-        const backImgID = document.getElementById('backImgID')
-        backImgID.addEventListener('click', function () {
+        const events = [
+            {
+                title: "Bead-Jewelry",
+                text: `Design and handcraft your own jewelry using beads, wire, and charms. Leave with a 
+                       <span class="eventWordGradiant">one-of-a-kind</span> piece that’s totally your style.`
+            },
+            {
+                title: "Tote Bag Painting",
+                text: `Grab a blank tote and turn it into a walking piece of art with paints, stencils,
+                       and your <span class="eventWordGradiant">imagination</span>. Perfect for carrying books, snacks, 
+                       or more art supplies.`
+            },
+            {
+                title: "Canvas Roulette",
+                text: `Start painting on one canvas, then switch every few minutes to add to someone else’s work. 
+                       By the end, you’ll have a chaotic, <span class="eventWordGradiant">collaborative masterpiece</span>.`
+            }
+        ];
+
+        const eventContent = document.getElementById('eventContent');
+
+        eventContent.innerHTML = `
+            <div class="eventRowPosition">
+                ${events.map(event => `
+                    <div class="eventPosition">
+                        <p class="eventHeader">${event.title}</p>
+                        <p class="eventText">${event.text}</p>
+                    </div>
+                `).join('')}
+                <div class="positionBox" id="eventColorDiv">
+                    <div class="sandBox"></div>
+                    <div class="plumBrownBox"></div>
+                    <div class="darkGreenBlueBox"></div>
+                    <div class="purplecurrantBox"></div>
+                </div>
+            </div>
+        `;
+
+
+        document.getElementById('backImgID').addEventListener('click', () => {
             window.location.href = "index.html";
-
-        })
-        // make the html cleaner into one object and map the object into one templete html and do not use insertAdjacentHTML
-        // const eventObj = [{
-        //     img: 'img/impactImage.png',
-        //     text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam deserunt
-        //             repellendus est fuga in quos exercitationem laborum aliquid eius. Possimus voluptate rem magni vero
-        //             in
-        //             ullam odit explicabo exercitationem deserunt.`,
-        // }, {
-        //     img: 'img/impactImage.png',
-        //     text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam deserunt
-        //             repellendus est fuga in quos exercitationem laborum aliquid eius. Possimus voluptate rem magni vero
-        //             in
-        //             ullam odit explicabo exercitationem deserunt.`,
-        // }, {
-        //     img: 'img/impactImage.png',
-        //     text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam deserunt
-        //             repellendus est fuga in quos exercitationem laborum aliquid eius. Possimus voluptate rem magni vero
-        //             in
-        //             ullam odit explicabo exercitationem deserunt.`,
-        // }]
-
-
+        });
     </script>
 </body>
+
 
 </html>
