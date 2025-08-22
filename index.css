@@ -222,17 +222,17 @@ body {
 .lightBlueBox {
   background-color: #9dc1f1;
 }
-.sandBox {
-  background-color: #9b461f;
+.salmonBox {
+  background-color: #cd9692;
 }
-.plumBrownBox {
-  background-color: #6a1d2f;
+.eYellowBox {
+  background-color: #e5d641;
 }
-.darkGreenBlueBox {
-  background-color: #354c3c;
+.eOrangeBox {
+  background-color: #f38819;
 }
-.purplecurrantBox {
-  background-color: #42354c;
+.ewineRedBox {
+  background-color: #9a1b25;
 }
 .blueBox,
 .pinkBox,
@@ -245,10 +245,10 @@ body {
 .firstPurpleBox,
 .secondPurpleBox,
 .lightBlueBox,
-.sandBox,
-.plumBrownBox,
-.darkGreenBlueBox,
-.purplecurrantBox {
+.salmonBox,
+.eYellowBox,
+.eOrangeBox,
+.ewineRedBox {
   /* border: 1px solid red; */
   height: 20px;
   width: 20px;
@@ -305,7 +305,7 @@ body {
   animation: gradientMove 5s ease-in-out infinite alternate;
 }
 .eventWordGradiant {
-  background: linear-gradient(to right, #dc8c0c, #183c4c, #412829);
+  background: linear-gradient(to right, #cd9692, #e5d641, #f38819, #9a1b25);
   background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -370,10 +370,10 @@ body {
   .firstPurpleBox,
   .secondPurpleBox,
   .lightBlueBox,
-  .sandBox,
-  .plumBrownBox,
-  .darkGreenBlueBox,
-  .purplecurrantBox {
+  .salmonBox,
+  .eYellowBox,
+  .eOrangeBox,
+  .ewineRedBoxx {
     height: 23px;
     width: 23px;
   }
