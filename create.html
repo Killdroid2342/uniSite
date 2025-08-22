@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Founders</title>
+</head>
+
+<body class="otherPagesBackground">
+    <img src="img/arrow.png" alt="" class="backImg" id="backImgID">
+    <div class="panel" id="createPanel">
+        <div>
+
+            <div class="imageCreateDiv">
+                <img src="img/transparentImpactSBCCCopy.png" alt="" class="impactLogoEdit">
+                <div class="underCreateSquaresDiv">
+                    <div class="underCreateSquares" id="firstBox"></div>
+                    <div class="underCreateSquares" id="secondBox"></div>
+                    <div class="underCreateSquares" id="thirdBox"></div>
+                    <div class="underCreateSquares" id="fourthBox"></div>
+                    <div class="underCreateSquares" id="fifthBox"></div>
+                </div>
+
+            </div>
+            <div class="positionColBtns">
+                <div class="positionRowBtns">
+                    <div class="colorChangeBTN" id="createBlack" style="background:#000000;"></div>
+                    <div class="colorChangeBTN" id="createWhite" style="background:#FFFFFF;"></div>
+                    <div class="colorChangeBTN" id="createRed" style="background:#FF0000;"></div>
+                    <div class="colorChangeBTN" id="createLime" style="background:#00FF00;"></div>
+                    <div class="colorChangeBTN" id="createBlue" style="background:#0000FF;"></div>
+                    <div class="colorChangeBTN" id="createYellow" style="background:#FFFF00;"></div>
+                </div>
+                <div class="positionRowBtns">
+                    <div class="colorChangeBTN" id="createMagenta" style="background:#FF00FF;"></div>
+                    <div class="colorChangeBTN" id="createCyan" style="background:#00FFFF;"></div>
+                    <div class="colorChangeBTN" id="createMaroon" style="background:#800000;"></div>
+                    <div class="colorChangeBTN" id="createOlive" style="background:#808000;"></div>
+                    <div class="colorChangeBTN" id="createGreen" style="background:#008000;"></div>
+                    <div class="colorChangeBTN" id="createPurple" style="background:#800080;"></div>
+                </div>
+                <div class="positionRowBtns">
+                    <div class="colorChangeBTN" id="createTeal" style="background:#008080;"></div>
+                    <div class="colorChangeBTN" id="createNavy" style="background:#000080;"></div>
+                    <div class="colorChangeBTN" id="createSilver" style="background:#C0C0C0;"></div>
+                    <div class="colorChangeBTN" id="createGray" style="background:#808080;"></div>
+                    <div class="colorChangeBTN" id="createOrange" style="background:#FFA500;"></div>
+                    <div class="colorChangeBTN" id="createBrown" style="background:#A52A2A;"></div>
+                </div>
+                <div class="positionRowBtns">
+                    <div class="colorChangeBTN" id="createDarkRed" style="background:#8B0000;"></div>
+                    <div class="colorChangeBTN" id="createGold" style="background:#FFD700;"></div>
+                    <div class="colorChangeBTN" id="createGoldenrod" style="background:#DAA520;"></div>
+                    <div class="colorChangeBTN" id="createKhaki" style="background:#F0E68C;"></div>
+                    <div class="colorChangeBTN" id="createGreenYellow" style="background:#ADFF2F;"></div>
+                    <div class="colorChangeBTN" id="createChartreuse" style="background:#7FFF00;"></div>
+                </div>
+                <div class="positionRowBtns">
+                    <div class="colorChangeBTN" id="createLimeGreen" style="background:#32CD32;"></div>
+                    <div class="colorChangeBTN" id="createLightSeaGreen" style="background:#20B2AA;"></div>
+                    <div class="colorChangeBTN" id="createCadetBlue" style="background:#5F9EA0;"></div>
+                    <div class="colorChangeBTN" id="createSteelBlue" style="background:#4682B4;"></div>
+                    <div class="colorChangeBTN" id="createRoyalBlue" style="background:#4169E1;"></div>
+                    <div class="colorChangeBTN" id="createSlateBlue" style="background:#6A5ACD;"></div>
+                </div>
+                <div class="positionRowBtns">
+                    <div class="colorChangeBTN" id="createIndigo" style="background:#4B0082;"></div>
+                    <div class="colorChangeBTN" id="createDarkOrchid" style="background:#9932CC;"></div>
+                    <div class="colorChangeBTN" id="createDarkMagenta" style="background:#8B008B;"></div>
+                    <div class="colorChangeBTN" id="createDeepPink" style="background:#FF1493;"></div>
+                    <div class="colorChangeBTN" id="createHotPink" style="background:#FF69B4;"></div>
+                    <div class="colorChangeBTN" id="createTurquoise" style="background:#40E0D0;"></div>
+
+                </div>
+            </div>
+
+        </div>
+        <script>
+            let selectedColor = '#FFFFFF'
+
+            const boxes = document.querySelectorAll('.underCreateSquares')
+            const colorButtons = document.querySelectorAll('.colorChangeBTN')
+
+            colorButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    selectedColor = this.style.backgroundColor
+                    console.log("Selected:", selectedColor)
+                })
+            })
+
+
+            boxes.forEach(box => {
+                box.addEventListener('click', function () {
+                    this.style.backgroundColor = selectedColor
+                })
+            })
+
+            const backImgID = document.getElementById('backImgID')
+            backImgID.addEventListener('click', function () {
+                window.location.href = "index.html";
+
+            })
+
+        </script>
+</body>
+
+</html>
