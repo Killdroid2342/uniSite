@@ -331,6 +331,33 @@ body {
 #createPanel {
   margin-top: 400px;
 }
+.imageEditContent {
+  margin-top: 120px;
+}
+@media (max-width: 920px) {
+  .imageCreateDiv {
+    width: 100%;
+    /* border: 1px solid red; */
+  }
+
+  .positionColBtns {
+    width: 100%;
+  }
+}
+@media (max-width: 1000px) {
+  .imageEditContent {
+    margin-top: 120px;
+    /* border: 1px solid red; */
+    width: 70%;
+  }
+  .impactLogoEdit {
+    width: 100%;
+  }
+  .underCreateSquares {
+    /* height: 50px; */
+    margin: 10px;
+  }
+}
 @keyframes gradientMove {
   0% {
     background-position: 0% center;
@@ -392,6 +419,12 @@ body {
   .eventPosition {
     width: 90%;
   }
+  .imageCreateDiv {
+    height: 200px;
+  }
+  #createPanel {
+    margin-top: 0px;
+  }
 }
 @media (max-width: 500px) {
   .eventRowPosition {
@@ -433,6 +466,13 @@ body {
   } */
 }
 @media (max-width: 400px) {
+  .colorChangeBTN {
+    margin: 5px;
+  }
+
+  .underCreateSquares {
+    margin: 5px;
+  }
   #eventContent {
     margin-top: 200px;
   }
@@ -446,7 +486,14 @@ body {
     margin: 10px 0;
   }
 }
+
 @media (max-width: 650px) {
+  .underCreateSquares {
+    height: 20px;
+  }
+  .colorChangeBTN {
+    height: 20px;
+  }
   .middleContent {
     /* width: 90%; */
     height: 400px;
@@ -463,6 +510,7 @@ body {
     overflow: hidden;
   }
 }
+
 @media (max-width: 333px) {
   .middleContent {
     width: 90%;
