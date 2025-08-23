@@ -330,6 +330,9 @@ body {
 }
 #createPanel {
   margin-top: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .imageEditContent {
   margin-top: 120px;
