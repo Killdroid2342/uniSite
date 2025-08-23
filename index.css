@@ -294,6 +294,8 @@ body {
 .imageCreateDiv {
   height: 400px;
   /* border: 1px solid red; */
+  /* width: 100%; */
+  padding: 50px 70px 0px 70px;
   background-color: white;
 }
 .impactLogoEdit {
@@ -333,34 +335,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* border: 1px solid blue; */
 }
 .imageEditContent {
   margin-top: 120px;
+
+  /* border: 1px solid green; */
 }
+
 @media (max-width: 920px) {
   .imageCreateDiv {
-    width: 100%;
-    /* border: 1px solid red; */
+    height: 300px;
   }
 
   .positionColBtns {
     width: 100%;
   }
 }
-@media (max-width: 1000px) {
-  .imageEditContent {
-    margin-top: 120px;
-    /* border: 1px solid red; */
-    width: 70%;
-  }
-  .impactLogoEdit {
-    width: 100%;
-  }
-  .underCreateSquares {
-    /* height: 50px; */
-    margin: 10px;
-  }
-}
+
 @keyframes gradientMove {
   0% {
     background-position: 0% center;
@@ -409,6 +401,20 @@ body {
     width: 400px;
   }
 }
+@media (max-width: 1000px) {
+  .imageEditContent {
+    margin-top: 120px;
+    /* border: 1px solid red; */
+    width: 70%;
+  }
+  .impactLogoEdit {
+    width: 100%;
+  }
+  .underCreateSquares {
+    height: 50px;
+    margin: 2px;
+  }
+}
 @media (max-width: 633px) {
   .eventRowPosition {
     display: flex;
@@ -422,14 +428,23 @@ body {
   .eventPosition {
     width: 90%;
   }
-  .imageCreateDiv {
-    height: 200px;
-  }
+
   #createPanel {
-    margin-top: 0px;
+    margin-top: 120px;
+  }
+  .imageCreateDiv {
+    padding: 20px 50px 0px 50px;
+    /* border: 1px solid yellow; */
+    height: 200px;
   }
 }
 @media (max-width: 500px) {
+  .imageCreateDiv {
+    /* padding: 20px 50px 0px 50px; */
+    /* border: 1px solid yellow; */
+    height: 150px;
+  }
+
   .eventRowPosition {
     display: flex;
     flex-direction: column;
@@ -468,21 +483,7 @@ body {
     margin-left: 35px;
   } */
 }
-@media (max-width: 400px) {
-  .colorChangeBTN {
-    margin: 5px;
-  }
 
-  .underCreateSquares {
-    margin: 5px;
-  }
-  #eventContent {
-    margin-top: 200px;
-  }
-  .panel-content {
-    margin-top: 120px;
-  }
-}
 @media (max-width: 768px) {
   .boxes {
     /* position: static !important; */
@@ -513,7 +514,23 @@ body {
     overflow: hidden;
   }
 }
+@media (max-width: 400px) {
+  .colorChangeBTN {
+    margin: 5px;
+  }
 
+  .underCreateSquares {
+    margin: 1px;
+    height: 13px;
+    /* border: 1px solid red; */
+  }
+  #eventContent {
+    margin-top: 200px;
+  }
+  .panel-content {
+    margin-top: 120px;
+  }
+}
 @media (max-width: 333px) {
   .middleContent {
     width: 90%;
