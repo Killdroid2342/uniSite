@@ -327,7 +327,7 @@ body {
 .colorChangeBTN {
   width: 100%;
   height: 40px;
-  border: 1px solid white;
+  border: 0.01em solid rgba(255, 255, 255, 0.603);
   margin: 10px;
 }
 #createPanel {
@@ -415,6 +415,36 @@ body {
     margin: 2px;
   }
 }
+@media (max-width: 768px) {
+  .boxes {
+    /* position: static !important; */
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .underCreateSquares {
+    height: 15px;
+  }
+  .colorChangeBTN {
+    height: 20px;
+  }
+  .middleContent {
+    /* width: 90%; */
+    height: 400px;
+
+    margin-top: 250px;
+  }
+  #MainLogo {
+    margin-bottom: 150px;
+  }
+  #landingPage {
+    background-color: #f5f5f5;
+    color: #000000;
+    height: 85vh;
+    overflow: hidden;
+  }
+}
 @media (max-width: 633px) {
   .eventRowPosition {
     display: flex;
@@ -438,6 +468,7 @@ body {
     height: 200px;
   }
 }
+
 @media (max-width: 500px) {
   .imageCreateDiv {
     padding: 50px 50px 50px 50px;
@@ -484,34 +515,9 @@ body {
   } */
 }
 
-@media (max-width: 768px) {
-  .boxes {
-    /* position: static !important; */
-    margin: 10px 0;
-  }
-}
-
-@media (max-width: 650px) {
+@media (max-width: 450px) {
   .underCreateSquares {
-    height: 20px;
-  }
-  .colorChangeBTN {
-    height: 20px;
-  }
-  .middleContent {
-    /* width: 90%; */
-    height: 400px;
-
-    margin-top: 250px;
-  }
-  #MainLogo {
-    margin-bottom: 150px;
-  }
-  #landingPage {
-    background-color: #f5f5f5;
-    color: #000000;
-    height: 85vh;
-    overflow: hidden;
+    height: 13px;
   }
 }
 @media (max-width: 400px) {
