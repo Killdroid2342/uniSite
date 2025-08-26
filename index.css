@@ -294,7 +294,7 @@ body {
 .imageCreateDiv {
   height: 400px;
   /* border: 1px solid red; */
-  /* width: 100%; */
+
   padding: 50px 70px 0px 70px;
   background-color: white;
 }
@@ -308,9 +308,11 @@ body {
 }
 .underCreateSquares {
   height: 60px;
-  width: 160px;
+  width: 170px;
   border: 1px solid black;
   margin-top: 20px;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 .positionColBtns {
   display: flex;
@@ -342,17 +344,6 @@ body {
 
   /* border: 1px solid green; */
 }
-
-@media (max-width: 920px) {
-  .imageCreateDiv {
-    height: 300px;
-  }
-
-  .positionColBtns {
-    width: 100%;
-  }
-}
-
 @keyframes gradientMove {
   0% {
     background-position: 0% center;
@@ -390,15 +381,9 @@ body {
   /* margin-left: 30px; */
 }
 
-@media (min-width: 633px) {
-  .eventRowPosition {
-    /* border: 1px solid red; */
-    width: 400px;
-  }
-
-  .panel-content {
-    /* border: 1px solid red; */
-    width: 400px;
+@media (max-width: 1063px) {
+  .impactLogoEdit {
+    width: 100%;
   }
 }
 @media (max-width: 1000px) {
@@ -411,20 +396,41 @@ body {
     width: 100%;
   }
   .underCreateSquares {
-    height: 50px;
-    margin: 2px;
+    height: 30px;
+    margin: 0.5px;
+  }
+  .imageCreateDiv {
+    height: 300px;
   }
 }
+@media (max-width: 920px) {
+  .imageCreateDiv {
+    height: 300px;
+  }
+
+  .positionColBtns {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .boxes {
     /* position: static !important; */
     margin: 10px 0;
+  }
+  .imageCreateDiv {
+    height: 200px;
+  }
+  .underCreateSquares {
+    height: 20px;
+    margin: 0.5px;
   }
 }
 
 @media (max-width: 650px) {
   .underCreateSquares {
     height: 15px;
+    margin: 0.5px;
   }
   .colorChangeBTN {
     height: 20px;
@@ -467,8 +473,21 @@ body {
     /* border: 1px solid yellow; */
     height: 200px;
   }
+  .colorChangeBTN {
+    margin: 5px;
+  }
 }
+@media (min-width: 633px) {
+  .eventRowPosition {
+    /* border: 1px solid red; */
+    width: 400px;
+  }
 
+  .panel-content {
+    /* border: 1px solid red; */
+    width: 400px;
+  }
+}
 @media (max-width: 500px) {
   .imageCreateDiv {
     padding: 50px 50px 50px 50px;
@@ -526,8 +545,8 @@ body {
   }
 
   .underCreateSquares {
-    margin: 1px;
-    height: 13px;
+    margin: 0.5px;
+    height: 12px;
     /* border: 1px solid red; */
   }
   #eventContent {
