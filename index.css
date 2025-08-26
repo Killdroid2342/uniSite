@@ -90,8 +90,8 @@ body {
   width: 8px;
   height: auto;
   cursor: pointer;
-  /* transform: rotate(180deg); */
   z-index: 10;
+  /* transform: rotate(180deg); */
 }
 .middleContent {
   /* width: 90%;
@@ -380,17 +380,38 @@ body {
 #eventColorDiv {
   /* margin-left: 30px; */
 }
+.saveDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-bottom: 80px;
+}
+.saveImage {
+  background-color: #800000;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  border: 2px solid #5a0000;
+  padding: 10px 25px;
+  cursor: pointer;
+  box-shadow: inset -2px -2px 2px #5a0000, inset 2px 2px 2px #a52a2a;
 
-@media (max-width: 1063px) {
+  height: auto;
+  cursor: pointer;
+}
+.saveImage:hover {
+  background-color: #a00000;
+}
+
+@media (max-width: 1310px) {
   .impactLogoEdit {
     width: 100%;
   }
-}
-@media (max-width: 1000px) {
   .imageEditContent {
     margin-top: 120px;
     /* border: 1px solid red; */
-    width: 70%;
+    width: 90%;
   }
   .impactLogoEdit {
     width: 100%;
@@ -403,6 +424,12 @@ body {
     height: 300px;
   }
 }
+@media (max-width: 1063px) {
+  .impactLogoEdit {
+    width: 100%;
+  }
+}
+
 @media (max-width: 920px) {
   .imageCreateDiv {
     height: 300px;
