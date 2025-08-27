@@ -319,7 +319,7 @@ body {
   flex-direction: column;
   width: 100%;
   /* border: 1px solid red; */
-  margin-top: 100px;
+  margin-top: 80px;
 }
 .positionRowBtns {
   display: flex;
@@ -403,7 +403,15 @@ body {
 .saveImage:hover {
   background-color: #a00000;
 }
-
+.createInstructions {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+}
+.createText {
+  margin-top: 12px;
+  /* border: 1px solid red; */
+}
 @media (max-width: 1310px) {
   .impactLogoEdit {
     width: 100%;
@@ -562,6 +570,7 @@ body {
   } */
   .imageEditContent {
     width: 90%;
+    margin-top: 0px;
   }
   #createPanel {
     justify-content: start;
