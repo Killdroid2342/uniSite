@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <title>Founders</title>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
 </head>
 
 <body class="otherPagesBackground">
@@ -19,7 +21,7 @@
                 <button class="saveImage">Save</button>
             </div>
 
-            <div class="imageCreateDiv">
+            <div class="imageCreateDiv" id="imageCreateDiv">
                 <img src="img/transparentImpactSBCCCopy.png" alt="" class="impactLogoEdit">
                 <div class="underCreateSquaresDiv">
                     <div class="underCreateSquares" id="firstBox"></div>
@@ -108,7 +110,19 @@
                 window.location.href = "index.html";
 
             })
+            const saveBtn = document.querySelector('.saveImage');
+            saveBtn.addEventListener('click', function () {
+                const targetDiv = document.getElementById('imageCreateDiv');
 
+                html2canvas(targetDiv, {
+                    backgroundColor: null,
+                }).then(canvas => {
+                    let link = document.createElement('a');
+                    link.download = 'my_creation.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                });
+            });
         </script>
 </body>
 

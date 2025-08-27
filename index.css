@@ -417,8 +417,9 @@ body {
     width: 100%;
   }
   .underCreateSquares {
-    height: 30px;
+    height: 45px;
     margin: 0.5px;
+    width: 19%;
   }
   .imageCreateDiv {
     height: 300px;
@@ -456,7 +457,7 @@ body {
 
 @media (max-width: 650px) {
   .underCreateSquares {
-    height: 15px;
+    height: 20px;
     margin: 0.5px;
   }
   .colorChangeBTN {
@@ -569,7 +570,7 @@ body {
 
 @media (max-width: 450px) {
   .underCreateSquares {
-    height: 13px;
+    height: 20px;
   }
 }
 @media (max-width: 400px) {
@@ -579,7 +580,7 @@ body {
 
   .underCreateSquares {
     margin: 0.5px;
-    height: 12px;
+    height: 16px;
     /* border: 1px solid red; */
   }
   #eventContent {
