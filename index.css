@@ -384,7 +384,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: end;
-  margin-bottom: 44px;
+  margin-bottom: 34px;
 }
 .saveImage {
   background-color: #800000;
@@ -573,7 +573,7 @@ body {
   } */
   .imageEditContent {
     width: 90%;
-    margin-top: 55px;
+    margin-top: 35px;
   }
   #createPanel {
     justify-content: start;
