@@ -340,7 +340,7 @@ body {
   /* border: 1px solid blue; */
 }
 .imageEditContent {
-  margin-top: 120px;
+  margin-top: 250px;
 
   /* border: 1px solid green; */
 }
@@ -416,7 +416,8 @@ body {
     width: 100%;
   }
   .imageEditContent {
-    margin-top: 120px;
+    margin-top: 250px;
+
     /* border: 1px solid red; */
     width: 90%;
   }
@@ -511,6 +512,9 @@ body {
   .colorChangeBTN {
     margin: 5px;
   }
+  .imageEditContent {
+    margin-top: 200px;
+  }
 }
 @media (min-width: 633px) {
   .eventRowPosition {
@@ -569,7 +573,7 @@ body {
   } */
   .imageEditContent {
     width: 90%;
-    margin-top: 0px;
+    margin-top: 160px;
   }
   #createPanel {
     justify-content: start;
