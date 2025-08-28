@@ -576,7 +576,7 @@ body {
     margin-top: 35px;
   }
   #createPanel {
-    justify-content: start;
+    justify-content: center;
   }
 }
 
