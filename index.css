@@ -93,10 +93,10 @@ body {
   z-index: 10;
   /* transform: rotate(180deg); */
 }
-.middleContent {
-  /* width: 90%;
-  height: 600px; */
-}
+/* .middleContent {
+  width: 90%;
+  height: 600px;
+} */
 .underImgContent {
   width: 90%;
   margin-top: 30px;
@@ -377,9 +377,9 @@ body {
   color: transparent;
   animation: gradientMove 5s ease-in-out infinite alternate;
 }
-#eventColorDiv {
-  /* margin-left: 30px; */
-}
+/* #eventColorDiv {
+   margin-left: 30px; 
+} */
 .saveDiv {
   display: flex;
   flex-direction: row;
