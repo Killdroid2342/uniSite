@@ -81,7 +81,7 @@ body {
   border: 1px solid red;
 } */
 #FoundersPage {
-  margin-top: 118px;
+  margin-top: 130px;
 }
 .backImg {
   position: absolute;
@@ -109,7 +109,7 @@ body {
   flex-direction: column;
   /* border: 1px solid red; */
   /* width: 120%; */
-  margin-top: 120px;
+  margin-top: 140px;
 }
 .eventPosition {
   display: flex;
